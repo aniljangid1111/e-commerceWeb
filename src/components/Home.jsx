@@ -55,11 +55,13 @@ export default function Home() {
       <div className="container-fluid p-0 m-0 position-relative" >
         <figure><img src={manbanner} alt="" className='w-100 ' /></figure>
 
-        <div className='btn-men-banner'>
+        <div className='btn-men-banner '>
           <div><Link to={`/product-listing/mens-shirts`}><button>Men's Shirt</button></Link></div>
           <div><Link to={`/product-listing/mens-shoes`}><button>Men's Shoes</button></Link></div>
           <div><Link to={`/product-listing/mens-watches`}><button>Men's Watches</button></Link></div>
           <div><Link to={`/product-listing/sunglasses`}><button>Sunglasses</button></Link></div>
+
+          <div className='all-home-button'> <Link to={`/product-listing`}><button>All Product</button></Link></div>
         </div>
 
       </div>

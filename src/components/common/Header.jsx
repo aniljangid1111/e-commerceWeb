@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { ToastContainer } from 'react-toastify'
 import { commonContex } from '../contex Api/Contex';
-import { IoIosContact, IoMdHeart } from 'react-icons/io';
+import { IoIosContact, IoIosLogOut, IoMdHeart } from 'react-icons/io';
 import { FaCartShopping } from 'react-icons/fa6';
 
 
@@ -80,7 +80,7 @@ export default function Header() {
                 {
                   isLogin
                     ?
-                    <div onClick={logout} className="btn btn-link text-dark d-none d-md-inline-block">Log Out</div>
+                    <div onClick={logout} className="btn btn-link text-dark"><IoIosLogOut /></div>
                     :
                     <Link to={'/login-register'}>
                       <span className='heart-icon p-0 mx-2  btn btn-link text-dark'>

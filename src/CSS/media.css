@@ -1,0 +1,60 @@
+@media (max-width: 768px) {
+    .btn-men-banner button {
+        font-size: 14px;
+        padding: 3px 8px;
+
+
+    }
+
+    .btn-men-banner div:nth-child(1) {
+        left: 10%;
+        top: 15%;
+
+    }
+
+    .btn-men-banner div:nth-child(2) {
+        left: 10%;
+        top: 35%;
+
+    }
+
+    .btn-men-banner div:nth-child(3) {
+        left: 10%;
+        top: 55%;
+
+    }
+
+    .btn-men-banner div:nth-child(4) {
+        left: 10%;
+        top: 75%;
+
+    }
+}
+
+/* Extra small screens (max-width 480px = phones only) */
+@media (max-width: 480px) {
+    .btn-men-banner button {
+        display: none;
+    }
+
+    .all-home-button button {
+        border: none;
+        background-color: #2E608D;
+        color: #A7D7EA;
+        padding: 4px 10px;
+        border-radius: 0 8px 8px 8px;
+        transition: 0.4s;
+        opacity: 0.1;
+        box-shadow: -12px 20px 45px rgba(0, 0, 0, 0.686);
+        transform: translateX(-40%);
+        animation: slide-in 1.5s ease-in forwards;
+        display: inline-block !important;
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+    .all-home-button{
+        top: 35%;
+        left: 15%;
+
+    }
+}

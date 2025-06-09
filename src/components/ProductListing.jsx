@@ -461,7 +461,7 @@ export default function ProductListing() {
                   <div className='row m-auto w-100 '>
                     <div className='cols-12 m-auto  '>
                       {/* Manualy Pagination */}
-                      <Pagination>
+                      {/* <Pagination>
                         <Pagination.First onClick={firstPage} />
                         <Pagination.Prev onClick={previousPage} />
 
@@ -477,9 +477,9 @@ export default function ProductListing() {
                           })
                         }
                         {/* <Pagination.Ellipsis /> */}
-                        <Pagination.Next onClick={nextPage} />
-                        <Pagination.Last onClick={lastPage} />
-                      </Pagination>
+                        {/* <Pagination.Next onClick={nextPage} /> */}
+                        {/* <Pagination.Last onClick={lastPage} /> */}
+                      {/* </Pagination> */}
 
                       {/* react Pagination auto */}
                       <ResponsivePagination

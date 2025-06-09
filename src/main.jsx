@@ -4,6 +4,7 @@ import ProductListing from './components/ProductListing'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './CSS/style.css'
+import './CSS/media.css'
 import { BrowserRouter, Routes, Route, HashRouter } from "react-router";
 import Home from './components/Home'
 import RootLayout from './components/RootLayout'
@@ -14,9 +15,10 @@ import LoginRegister from './components/LoginRegister'
 import DealsPage from './components/DealsPage'
 
 
-
+const isProduction = import.meta.env.MODE === 'production';
+const base = isProduction ? '/e-commerceWeb' : '/';
 createRoot(document.getElementById('root')).render(
-  <HashRouter basename="/e-commerceWeb">
+  <HashRouter basename={base}>
 
     <Routes>
       <Route element={<RootLayout />}>
