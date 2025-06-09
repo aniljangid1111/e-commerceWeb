@@ -16,7 +16,7 @@ import DealsPage from './components/DealsPage'
 
 
 const isProduction = import.meta.env.MODE === 'production';
-const base = isProduction ? '/e-commerceWeb' : '/';
+const base = isProduction ? '//e-commerceWeb' : '/';
 createRoot(document.getElementById('root')).render(
   <HashRouter basename={base}>
 
