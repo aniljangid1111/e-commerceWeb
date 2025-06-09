@@ -16,7 +16,8 @@ import DealsPage from './components/DealsPage'
 
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/e-commerceweb">
+  <BrowserRouter basename="/e-commerceWeb">
+
     <Routes>
       <Route element={<RootLayout />}>
         <Route path="/" element={<Home />} />
