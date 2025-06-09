@@ -9,7 +9,8 @@ import { Pagination } from 'react-bootstrap'
 import ResponsivePagination from 'react-responsive-pagination';
 import { useParams } from 'react-router'
 import PlaceHolder from './PlaceHolder'
-// import 'react-responsive-pagination/themes/classic-light-dark.css';
+import dataNotFound from './../assets/noData.jpg'
+
 
 
 export default function ProductListing() {
@@ -49,7 +50,7 @@ export default function ProductListing() {
       })
   }, [])
   useEffect(() => {
-    axios.get('http://wscubetech.co/ecommerce-api/brands.php')
+    axios.get('https://wscubetech.co/ecommerce-api/brands.php')
       .then((response) => {
         setBrand(response.data.data)
       })
@@ -444,9 +445,9 @@ export default function ProductListing() {
 
                     {loading
                       ?
-                     <>
-                      <PlaceHolder /> <PlaceHolder /> <PlaceHolder /> 
-                     </>
+                      <>
+                        <PlaceHolder /> <PlaceHolder /> <PlaceHolder />
+                      </>
                       :
 
                       products.map((v, i) => {
@@ -491,7 +492,7 @@ export default function ProductListing() {
                 </>
                 :
                 <figure className='w-75 h-70 p-0 m-auto position-relative top-0 left-0'>
-                  <img src="./src/assets/noData.jpg" alt="NoDataimg" className='w-100 h-100' />
+                  <img src={dataNotFound} alt="NoDataimg" className='w-100 h-100' />
                   <h3 className='no-product'>No Product Found</h3>
                 </figure>
             }

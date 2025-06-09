@@ -34,15 +34,21 @@ createRoot(document.getElementById('root')).render(
       <Route path='admin-panel'>
 
         <Route path='category'>
-          <Route path='add' element={< AboutUs />} />
-          <Route path='view' element={< AboutUs />} />
-          <Route path='update' element={< AboutUs />} />
+          <Route path='add' element={< Home
+           />} />
+          <Route path='view' element={< Home
+           />} />
+          <Route path='update' element={< Home
+           />} />
         </Route>
 
         <Route path='product'>
-          <Route path='add' element={< AboutUs />} />
-          <Route path='view' element={< AboutUs />} />
-          <Route path='update' element={< AboutUs />} />
+          <Route path='add' element={< Home
+           />} />
+          <Route path='view' element={< Home
+           />} />
+          <Route path='update' element={< Home
+           />} />
         </Route>
 
       </Route>

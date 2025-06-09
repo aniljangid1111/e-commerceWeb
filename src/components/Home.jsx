@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import Product from './Product'
 import { Link } from 'react-router'
 import PlaceHolder from './PlaceHolder'
+import manbanner from './../assets/bannerMen.jpg'
 
 export default function Home() {
   const [mensShirt, setMensShirt] = useState([])
@@ -52,7 +53,7 @@ export default function Home() {
   return (
     <>
       <div className="container-fluid p-0 m-0 position-relative" >
-        <figure><img src="./src/assets/bannerMen.jpg" alt="" className='w-100 ' /></figure>
+        <figure><img src={manbanner} alt="" className='w-100 ' /></figure>
 
         <div className='btn-men-banner'>
           <div><Link to={`/product-listing/mens-shirts`}><button>Men's Shirt</button></Link></div>
