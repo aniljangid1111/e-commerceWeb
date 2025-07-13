@@ -24,104 +24,10 @@ export default function Product({ data }) {
 
     }, [data])
 
-    const { cardItem, setCardItem, wishList, setWishList, isLogin } = useContext(commonContex)
-
-    const addToCard = (productInfo) => {
-
-        const checkCart = cardItem.filter((v) => {
-            if (productInfo.id == v.id) {
-                return v;
-            }
-        })
-        if (checkCart.length > 0) {
-
-            const cartData = cardItem.map((data) => {
-                if (productInfo.id == data.id) {
-                    if (data.quantity < 3) {
-                        data.quantity++;
-                        toast.success('Cart Update successfully !')
-                        return data;
-                    } else {
-                        toast.warn('Oops! Max quantity already in cart.')
-                        return data;
-                    }
+    const { cardItem, setCardItem, wishList, setWishList, isLogin,addToCard ,wishlistProduct } = useContext(commonContex)
 
 
-
-                }
-                else {
-                    return data;
-                }
-
-            })
-            const finalData = [...cartData];
-            setCardItem(finalData);
-            localStorage.setItem('cardItem', JSON.stringify(finalData));
-
-            // FireBase Data write work
-            const db = getDatabase(app);
-            set(ref(db, 'users_cart/' + isLogin), finalData)
-
-        } else {
-            const info = {
-                id: productInfo.id,
-                name: productInfo.name,
-                price: productInfo.price,
-                image: productInfo.image,
-                category_name: productInfo.category_name,
-                description: productInfo.description,
-                brand_name: productInfo.brand_name,
-                rating: productInfo.rating,
-                quantity: 1
-            }
-            const finalData = [info, ...cardItem]
-            setCardItem(finalData);
-            localStorage.setItem('cardItem', JSON.stringify(finalData));
-            toast.success('Add To Card :)')
-
-            // FireBase Data write work
-            const db = getDatabase(app);
-            set(ref(db, 'users_cart/' + isLogin), finalData)
-
-        }
-    }
-
-
-    const wishlistProduct = (productInfo) => {
-        const checkWish = wishList.filter((v) => productInfo.id === v.id);
-
-        if (checkWish.length > 0) {
-            const updatedWishList = wishList.map((data) => {
-                if (productInfo.id === data.id) {
-                    toast.warn('Oops! This item is already in your wishlist.');
-                    return data; // do not add again
-                } else {
-                    return data;
-                }
-            });
-
-            setWishList(updatedWishList);
-            localStorage.setItem('wishitem', JSON.stringify(updatedWishList));
-        } else {
-            const info = {
-                id: productInfo.id,
-                name: productInfo.name,
-                price: productInfo.price,
-                image: productInfo.image,
-                category_name: productInfo.category_name,
-                description: productInfo.description,
-                brand_name: productInfo.brand_name,
-                rating: productInfo.rating,
-                quantity: 1,
-            };
-
-            const finalData = [info, ...wishList];
-            setWishList(finalData);
-            localStorage.setItem('wishitem', JSON.stringify(finalData));
-            toast.success('Added to wishlist ❤️');
-        }
-    };
-
+ 
 
 
     return (

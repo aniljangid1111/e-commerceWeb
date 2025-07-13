@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import PlaceHolder from './PlaceHolder'
 import Product from './Product'
 import axios from 'axios'
+
 
 
 export default function DealsPage() {
@@ -9,7 +10,7 @@ export default function DealsPage() {
     const [mensShirt, setMensShirt] = useState([])
 
 
-
+   
 
     // Men's Shirt
     useEffect(() => {

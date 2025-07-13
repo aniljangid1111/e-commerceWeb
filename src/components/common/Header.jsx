@@ -36,7 +36,7 @@ export default function Header() {
   return (
     <>
       <ToastContainer
-        position="bottom-right"
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -46,7 +46,6 @@ export default function Header() {
         draggable
         pauseOnHover
         theme="dark"
-      // transition={Bounce}
       />
       {/* <!-- Header --> */}
       <header className="sticky-top bg-white border-bottom shadow-sm">
@@ -116,14 +115,12 @@ export default function Header() {
                 {
                   category.map((v, i) => {
                     if (i < 6) {
-
                       return (
                         <Link to={`/product-listing/${v.slug}`} key={i} className="header-inner btn  text-white   d-none d-md-inline-block">{v.name}</Link>
                       )
                     }
                   })
                 }
-
               </div>
             </div>
           </div>

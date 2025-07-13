@@ -4,7 +4,10 @@ import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 
 export default function WishLisht() {
-    const { wishList, setWishList } = useContext(commonContex)
+    const { wishList, setWishList } = useContext(commonContex);
+
+    const { wishlistProduct, addToCard } = useContext(commonContex);
+
 
     const removeItem = (cardId) => {
         if (confirm('Are you sure you want to remove this product?')) {
@@ -42,7 +45,7 @@ export default function WishLisht() {
                                                     <button onClick={() => removeItem(card.id)} className="btn btn-outline-danger w-50">
                                                         Remove
                                                     </button>
-                                                    <button className="btn btn-dark w-50">Add to Cart</button>
+                                                    <button className="btn btn-dark w-50" onClick={()=>addToCard(card)}>Add to Cart</button>
                                                 </div>
                                             </div>
                                         </div>
