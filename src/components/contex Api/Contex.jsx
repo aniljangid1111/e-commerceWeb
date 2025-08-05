@@ -8,6 +8,9 @@ const commonContex = createContext();
 
 export default function Contex({ children }) {
 
+    const [searchItem, setSearchItem] = useState(''); // ✅ Add this line
+
+
     // --- Initial State Loading from LocalStorage (as you provided) ---
     // This runs once when the component first loads to get initial values.
 
@@ -175,7 +178,7 @@ export default function Contex({ children }) {
 
 
     // --- Data to be Provided to Other Components ---
-    const data = { cardItem, setCardItem, wishList, setWishList, isLogin, setIsLogin, addToCard, wishlistProduct };
+    const data = { cardItem, setCardItem, wishList, setWishList, isLogin, setIsLogin, addToCard, wishlistProduct, searchItem, setSearchItem };
 
     return (
         <>

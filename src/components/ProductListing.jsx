@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from './common/Header'
 import Breadcrumb from './common/Breadcrumb'
 import Footer from './common/Footer'
@@ -10,6 +10,7 @@ import ResponsivePagination from 'react-responsive-pagination';
 import { useParams } from 'react-router'
 import PlaceHolder from './PlaceHolder'
 import dataNotFound from './../assets/noData.jpg'
+import { commonContex } from './contex Api/Contex'
 
 
 
@@ -26,13 +27,16 @@ export default function ProductListing() {
   const [priceFrom, setPriceFrom] = useState('')
   const [discountTo, setDiscountTo] = useState('')
   const [discountFrom, setDiscountFrom] = useState('')
-  const [searchItem, setSearchItem] = useState('')
+  // const [searchItem, setSearchItem] = useState('')
   const [totalPage, setTotalPage] = useState('')
   const [allPage, setAllPage] = useState([])
 
   const [loading, setLoading] = useState(true)
 
   const params = useParams();
+
+
+  const {searchItem, setSearchItem } = useContext(commonContex)
 
   useEffect(() => {
     if (params.slug) {
@@ -397,19 +401,6 @@ export default function ProductListing() {
             {/* <!-- Top bar with results count and sorting --> */}
             <div className="card shadow-sm mb-4">
               <div className="card-body">
-
-
-                <div>   {/* <!-- Search --> */}
-                  <div className="col-12  order-md-1 order-3 mt-2 mt-md-0">
-                    <div className="input-group  mb-2 ">
-                      <span className="input-group-text bg-white border-end-0">
-                        <i className="fa fa-search text-muted"></i>
-                      </span>
-                      <input type="text" className="form-control border-start-0 search-items" placeholder="Search products..." onKeyUp={searchProduct} />
-                    </div>
-                  </div>
-                </div>
-
                 <div className="row align-items-center  ">
                   <div className="col-md-6 col-sm-5 col-4 mb-2 mb-md-0">
                     <h6 className="mb-0">{totalProduct} Products</h6>

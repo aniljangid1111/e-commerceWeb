@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { ToastContainer } from 'react-toastify'
 import { commonContex } from '../contex Api/Contex';
 import { IoIosContact, IoIosLogOut, IoMdHeart } from 'react-icons/io';
@@ -8,7 +8,7 @@ import { FaCartShopping } from 'react-icons/fa6';
 
 
 export default function Header() {
-  const { cardItem, isLogin, setIsLogin } = useContext(commonContex)
+  const { cardItem, isLogin, setIsLogin, searchItem, setSearchItem } = useContext(commonContex)
 
   const [category, setCategory] = useState([]);
 
@@ -25,8 +25,28 @@ export default function Header() {
   const logout = () => {
     localStorage.removeItem('user_uid')
     setIsLogin('')
-    
+
   }
+   const navition = useNavigate()
+  const [searchInput, setSearchInput] = useState('');
+
+  const searchProduct = (event) => {
+    if (event.key === 'Enter') {
+      const keyword = searchInput.trim();
+      if (keyword !== '') {
+        setSearchItem(keyword);
+        navition('/product-listing');
+      }
+    }
+  };
+
+  const searchProductByicon = () => {
+    const keyword = searchInput.trim();
+    if (keyword !== '') {
+      setSearchItem(keyword);
+      navition('/product-listing');
+    }
+  };
 
 
 
@@ -62,9 +82,17 @@ export default function Header() {
             <div className="col-md-5 col-12 order-md-1 order-3 mt-2 mt-md-0">
               <div className="input-group">
                 <span className="input-group-text bg-white border-end-0">
-                  <i className="fa fa-search text-muted"></i>
+                  <i onClick={searchProductByicon} className="fa fa-search text-muted" style={{ cursor: 'pointer' }}></i>
                 </span>
-                <input type="text" className="form-control border-start-0" placeholder="Search products..." />
+                <input
+                  type="text"
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  onKeyUp={searchProduct}
+                  className="form-control border-start-0"
+                  placeholder="Search products..."
+                />
+
               </div>
             </div>
 
